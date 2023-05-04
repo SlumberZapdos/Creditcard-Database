@@ -109,7 +109,43 @@ public class kayC {
     }
 
     static void register (){
+        Scanner input = new Scanner(System.in);
         //logic on registration part
 
+        //name
+        front.enterName();
+        String name = input.nextLine();
+
+        //number
+        front.enterNum();
+        String ccNum = input.nextLine();
+
+        //password
+        front.password();
+        String pass = input.nextLine();
+
+        //welcome
+        front.welcome();
+        String res = input.nextLine();
+    }
+    static  void login (){
+        Scanner input = new Scanner(System.in);
+        //logic in the login part
+
+        front.logName(); //check name if match
+        String name = input.nextLine();
+
+        front.logPass(); //check pass if match
+        String pass = input.nextLine();
+
+        front.logError();//if login failed
+        String res = input.nextLine();
+    }
+    static void profile(){
+        Scanner input = new Scanner(System.in);
+        //incomplete part yet
+
+        front.profile();
+        String res = input.nextLine();
     }
 }
