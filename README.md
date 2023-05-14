@@ -1,6 +1,6 @@
-# Creditcard Database
+# SmartWise
 
- A java program that me and my classmates worked on to pass for the finals for the course COMP103
+ A java program that validates which card the user has and puts in a database that puts a score to the card which me and my classmates worked on to pass for the finals for the course COMP103
 
 <p align = "center">
   <img src="https://github.com/Gooseytwoshoes/Creditcard-Database/blob/main/README-Asset/bc708f525c5564857a1e16356be3a378.gif" alt="CC-GIF" width = "450"/>
