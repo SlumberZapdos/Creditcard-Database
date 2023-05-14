@@ -44,7 +44,7 @@ A seamless interface for using your (imaginary) credit card where you can verify
 7.	If the input is 0, exit the program
 8.	If the input is an invalid option, print invalid input menu
 9.	End the program
-Registration process:
+> Registration process:
 10.	Prompt user for their name
 11.	Prompt user for their credit card number
 12.	Check what credit card type is
@@ -53,7 +53,7 @@ Registration process:
 13.	Prompt user for their password
 14.	Let the user validate if the given information is right
 15.	If the user validates the information, save and store the user information
-Login process:
+> Login process:
 16.	Prompt user for their name and password
 17.	Check if the user’s name and password matches
 -	If user’s name and password match, go to profile page
