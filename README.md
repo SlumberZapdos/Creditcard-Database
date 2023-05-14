@@ -58,4 +58,18 @@ A seamless interface for using your (imaginary) credit card where you can verify
 17.	Check if the user’s name and password matches
 -	If user’s name and password match, go to profile page
 -	If user’s name and password doesn’t match, print login error
+> Profile page:
+18.	Print out a menu with the options:
 
+-	1 to check points
+-	2 to redeem points
+-	3 to check when they'll pay their card
+-	4 to check rewards they could get
+-	0 to exit
+	
+19.	Prompt user for input 0 to 4
+20.	if user input is 1, go to rewards page
+21.	if user input is 2, go to redeem points page
+22.	if user input is 3, go to billing page
+23.	if user input is 4, go to rewards center 
+24	if user input is 0, exit the program
