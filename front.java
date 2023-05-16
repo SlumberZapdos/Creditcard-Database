@@ -1,20 +1,18 @@
-{
-    public static void main(String[] args) {
+public static void main(String[] args){
         //this file is where the UI is printed
-        //separate file due to how large the UI is on code and on basic code aesthetic
-
+        //separate file and given the CCS treatment for ease on debugging
 
     }
-    static void home(){
+    public static void home(){
         //homepage
         System.out.print(
                 """
                         |=============================|
-                        |₱            Kay-C          ₱|
+                        |₱        CreditWise         ₱|
                         |=============================|
                         |                             |
+                        |  How can we help you today? |
                         |                             |
-                        |    How can we help you?     |
                         |    [1]: Register            |
                         |    [2]: Login               |
                         |    [3]: Help                |
@@ -25,67 +23,122 @@
                         |=============================|
                         """);
     }
-    static void enterName(){
-        //registration form on name
-
+    public static void enterName() {
         System.out.print(
                 """
                         |=============================|
-                        |₱            Kay-C          ₱|
+                        |₱        CreditWise         ₱|
                         |=============================|
                         |                             |
-                        |       Welcome to Kay-C      |
+                        |    Welcome to CreditWise    |
                         |                             |
                         |    Enter your name:         |
-                        |    [1]: Next                |
-                        |    [2]: Cancel              |
-                        |    [0]: Exit                |
+                        |                             |
+                        |                             |
+                        |                             |
                         |                             |
                         |=============================|
                         |=========] BSCS-1A [=========|
                         |=============================|
                         """);
     }
-    static void enterNum(){
-        //registration form on CC num
-
+    public static void password() {
         System.out.print(
                 """
                         |=============================|
-                        |₱            Kay-C          ₱|
+                        |₱        CreditWise         ₱|
                         |=============================|
                         |                             |
-                        |       Welcome to Kay-C      |
+                        |                             |
+                        |    Welcome to CreditWise    |
+                        |                             |
+                        |    Enter your password:     |
+                        |                             |
+                        |                             |
+                        |                             |
+                        |                             |
+                        |=============================|
+                        |=========] BSCS-1A [=========|
+                        |=============================|
+                        """);
+    }
+
+    public static void enterNum() {
+        System.out.print(
+                """
+                        |=============================|
+                        |₱        CreditWise         ₱|
+                        |=============================|
+                        |                             |
+                        |    Welcome to CreditWise    |
                         |                             |
                         |    Enter your Credit Card   |
                         |          number:            |
-                        |    [1]: Next                |
-                        |    [2]: Cancel              |
-                        |    [0]: Exit                |
+                        |                             |
+                        |    We only could support    |
+                        |     Master card, VISA,      |
+                        |      & American Express     |
                         |                             |
                         |=============================|
                         |=========] BSCS-1A [=========|
                         |=============================|
                         """);
     }
-    static void validate(){
-        //validation on user info
 
+    public static void invalidCard() {
         System.out.print(
                 """
                         |=============================|
-                        |₱            Kay-C          ₱|
+                        |₱        CreditWise         ₱|
                         |=============================|
                         |                             |
-                        |       Welcome to Kay-C      |
-                        |            [Name],          |
+                        |     Invalid Credit Card     |
+                        |           Number            |
+                        |                             |
+                        |                             |
+                        |                             |
+                        |                             |
+                        |                             |
+                        |=============================|
+                        |=========] BSCS-1A [=========|
+                        |=============================|
+                        """);
+    }
+
+    public static void validate(String name, String ccType) {
+        System.out.printf(
+                """
+       
+                        |=============================|
+                        |₱        CreditWise         ₱|
+                        |=============================|
+                        |                             |
+                        |    Welcome to CreditWise    |
                         |   Are these correct?        |
-                        |     Name: [Name]            |
-                        |     CC Type: [Type]         |
+                        |     Name: [%s]
+                        |     CC Type: [%s]
                         |                             |
                         |    [1]: Confirm             |
-                        |    [2]: Cancel              |
                         |    [0]: Exit                |
+                        |                             |
+                        |=============================|
+                        |=========] BSCS-1A [=========|
+                        |=============================|
+                        """, name, ccType);
+}
+    public static void logName() {
+        System.out.print(
+                """
+                        |=============================|
+                        |₱        CreditWise         ₱|
+                        |=============================|
+                        |                             |
+                        |  Welcome back to CreditWise |
+                        |                             |
+                        |       Enter your name:      |
+                        |                             |
+                        |                             |
+                        |                             |
                         |                             |
                         |=============================|
                         |=========] BSCS-1A [=========|
@@ -93,107 +146,38 @@
                         """);
     }
 
-    static void password() {
-        //registration form on entering password
-
+    public static void logpassword() {
         System.out.print(
                 """
                         |=============================|
-                        |₱            Kay-C          ₱|
+                        |₱        CreditWise         ₱|
                         |=============================|
                         |                             |
                         |                             |
-                        |       Welcome to Kay-C      |
+                        |  Welcome back to CreditWise |
                         |                             |
-                        |      Enter your password    |
-                        |    [1]: Confirm             |
-                        |    [2]: Cancel              |
-                        |    [0]: Exit                |
+                        |      Enter your password:   |
+                        |                             |
+                        |                             |
+                        |                             |
                         |                             |
                         |=============================|
                         |=========] BSCS-1A [=========|
                         |=============================|
                         """);
     }
-    static void welcome() {
-        //welcome screen
-        // front end where it should confirm that the array was really altered
-
+    public static void logError() {
         System.out.print(
                 """
                         |=============================|
-                        |₱            Kay-C          ₱|
-                        |=============================|
-                        |                             |
-                        |                             |
-                        |       Welcome to Kay-C      |
-                        |           [Name]!           |
-                        |                             |
-                        |                             |
-                        |    [0]: Exit                |
-                        |                             |
-                        |=============================|
-                        |=========] BSCS-1A [=========|
-                        |=============================|
-                        """);
-    }
-    static void logName() {
-        //login screen for entering name
-
-        System.out.print(
-                """
-                        |=============================|
-                        |₱            Kay-C          ₱|
-                        |=============================|
-                        |                             |
-                        |       Welcome back to       |
-                        |             Kay-C           |
-                        |      Please enter your      |
-                        |            Name             |
-                        |                             |
-                        |    [1]: Back                |
-                        |    [0]: Exit                |
-                        |                             |
-                        |=============================|
-                        |=========] BSCS-1A [=========|
-                        |=============================|
-                        """);
-    }
-    static void logPass() {
-        //login screen for entering name
-
-        System.out.print(
-                """
-                        |=============================|
-                        |₱            Kay-C          ₱|
-                        |=============================|
-                        |                             |
-                        |       Welcome back to       |
-                        |            Kay-C            |
-                        |      Please enter your      |
-                        |          Password           |
-                        |                             |
-                        |    [1]: Back                |
-                        |    [0]: Exit                |
-                        |                             |
-                        |=============================|
-                        |=========] BSCS-1A [=========|
-                        |=============================|
-                        """);
-    }
-    static void logError() {
-        //login screen for entering name
-
-        System.out.print(
-                """
-                        |=============================|
-                        |₱            Kay-C          ₱|
+                        |₱        CreditWise         ₱|
                         |=============================|
                         |                             |
                         |  Invalid Name / Password    |
                         |          Try again          |
                         |                             |
-                        |    [1]: Back                |
+                        |                             |
+                        |                             |
                         |    [0]: Exit                |
                         |                             |
                         |=============================|
@@ -201,16 +185,18 @@
                         |=============================|
                         """);
     }
-    static void profile() {
+
+    static void profile(String name) {
         //profile of user
 
-        System.out.print(
+        System.out.printf(
                 """
                         |=============================|
-                        |₱            Kay-C          ₱|
+                        |₱        CreditWise         ₱|
                         |=============================|
                         |                             |
-                        |     Welcome back, [name]    |
+                        |        Welcome back,        |
+                                  [%s]
                         |       how can we help?      |
                         |                             |
                         |    [1]: Check points        |
@@ -222,23 +208,45 @@
                         |=============================|
                         |=========] BSCS-1A [=========|
                         |=============================|
-                        """);
+                        """, name);
     }
-    static void help() {
-        //help on homepage
 
-        System.out.print(
+    static void checkPoints(String name, int points) {
+        //profile of user
+
+        System.out.printf(
                 """
                         |=============================|
-                        |₱            Kay-C          ₱|
+                        |₱        CreditWise         ₱|
                         |=============================|
                         |                             |
-                        |      Welcome to Kay-C!      |
+                        |        Welcome back,        |
+                                  [%s]
+                        |       your points are       |
+                        |                             |
+                                       %d
+                        |                             |
+                        |    [4]: Rewards             |
+                        |    [0]: Exit                |
+                        |                             |
+                        |=============================|
+                        |=========] BSCS-1A [=========|
+                        |=============================|
+                        """, name, points);
+    }
+public static void help(){
+System.out.print(
+                    """
+                        |=============================|
+                        |₱        CreditWise         ₱|
+                        |=============================|
+                        |                             |
+                        |   Welcome to CreditWise!    |
                         |   this is an app to make    |
                         |   using your credit card    |
                         |          with ease          |
                         |                             |
-                        |    [1]: Back                |
+                        |                             |
                         |    [0]: Exit                |
                         |                             |
                         |=============================|
@@ -246,8 +254,23 @@
                         |=============================|
                         """);
     }
-    static void clear(){
-        //clear screen
-        System.out.print("\u000C");
+    public static void invalid() {
+        System.out.print(
+                """
+                        |=============================|
+                        |₱        CreditWise         ₱|
+                        |=============================|
+                        |                             |
+                        |        Invalid Input        |
+                        |                             |
+                        |                             |
+                        |                             |
+                        |                             |
+                        |                             |
+                        |                             |
+                        |=============================|
+                        |=========] BSCS-1A [=========|
+                        |=============================|
+                        """);
     }
 }
