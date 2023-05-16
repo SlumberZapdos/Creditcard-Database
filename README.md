@@ -8,16 +8,16 @@
 
 <br>
 
-# Key-C Project
+# CreditWise
 
-A seamless interface for using your (imaginary) credit card where you can verify, what type of credit card you have, track your billing cycle, and earn imaginary and useless points on something that doesn't exist if you're registered in this imaginary bank's program
+A seamless interface for using your (imaginary) credit card where you can verify, what type of credit card you have, track your billing cycle, and earn imaginary and useless points on something that doesn't exist if you registered in this imaginary program
 
   ## Login and registration screen
   - a login screen alike the ATM machine but better
   - registration of cards is seamless
   - registration where you can give your personal information
   
-  ## Key-C points
+  ## CreditWise points
   - Imaginary and useless points that you could earn by using this program
   
   ## Payment checker
