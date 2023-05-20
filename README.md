@@ -72,4 +72,4 @@ A seamless interface for using your (imaginary) credit card where you can verify
 21.	if user input is 2, go to redeem points page
 22.	if user input is 3, go to billing page
 23.	if user input is 4, go to rewards center 
-24	if user input is 0, exit the program
+24.	if user input is 0, exit the program
