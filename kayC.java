@@ -25,7 +25,7 @@ public class kayC {
         // store credentials
         // revise public stativ void content - break data into packages
         
-        // break 1
+        // break 1 - main class
         String[][] credentials = {
                 {}, //usernames
                 {}, //passwords
@@ -76,7 +76,7 @@ public class kayC {
         }
     }
 
-    //break2 - convert into different package
+    //break2 - send to different class
     static String typeCheck(long ccNum){
 
         // This is the old CCChecker.java file integrated to main for easier debugging
@@ -115,7 +115,7 @@ public class kayC {
     }
 
     
-        //break 3 - convert into different package
+        //break 3 - send to different class
     static void register (){
         Scanner input = new Scanner(System.in);
         //logic on registration part
@@ -138,7 +138,7 @@ public class kayC {
     }
     
     
-        //break 4 - convert into different package
+        //break 4 - send to different class
     static  void login (){
         Scanner input = new Scanner(System.in);
         //logic in the login part
