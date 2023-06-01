@@ -97,7 +97,7 @@ public class creditWise {
             }
 
             // Password
-            frontFork1.password();
+            front.password();
             String pass = input.nextLine();
             userInfo[2] = pass;
 
