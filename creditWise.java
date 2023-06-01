@@ -48,7 +48,7 @@ public class creditWise {
 
         while(!exitProgram){
             //homepage
-            frontFork1.home();
+            front.home();
             String choice = input.nextLine();
 
             switch (choice){
@@ -60,13 +60,13 @@ public class creditWise {
                     String[] loginDetails = login(points, credentials);
                     break;
                 case "3":
-                    frontFork1.help();
+                    front.help();
                     break;
                 case "0":
                     exitProgram = true;
                     break;
                 default:
-                    frontFork1.invalid();
+                    front.invalid();
             }
         }
 
@@ -80,19 +80,19 @@ public class creditWise {
         // Logic in registration part
         while (!credentialsConfirmed) {
             // Name
-            frontFork1.enterName();
+            front.enterName();
             String name = input.nextLine();
             userInfo[0] = name;
 
             // Credit card number
-            frontFork1.enterNum();
+            front.enterNum();
             String ccNum = input.nextLine();
             userInfo[1] = ccNum;
 
             // Validate credit card
             String ccType = typeCheck(Long.parseLong(ccNum));
             if (ccType.equals("INVALID")) {
-                frontFork1.invalidCard();
+                front.invalidCard();
                 continue;
             }
 
@@ -102,7 +102,7 @@ public class creditWise {
             userInfo[2] = pass;
 
             // Confirm credentials
-            frontFork1.validate(name, ccType);
+            front.validate(name, ccType);
             String ans = input.nextLine();
             if (ans.equals("1")) {
                 credentialsConfirmed = true;
@@ -152,11 +152,11 @@ public class creditWise {
         Scanner input = new Scanner(System.in);
         String[] loginDetails = new String[3];
 
-        frontFork1.logName();
+        front.logName();
         String name = input.nextLine();
         loginDetails[0] = name;
 
-        frontFork1.logpassword();
+        front.logpassword();
         String pass = input.nextLine();
         loginDetails[1] = pass;
 
@@ -170,7 +170,7 @@ public class creditWise {
         if (found){ //profile method???
             profile(name, points);
         } else {
-            frontFork1.logError();
+            front.logError();
             String res = input.nextLine();
             loginDetails[2] = res;
         }
@@ -179,8 +179,8 @@ public class creditWise {
     }
     static void profile (String name, int points){
         //profile method
-        frontFork1.profile(name);
-        frontFork1.checkPoints(name, points);
+        front.profile(name);
+        front.checkPoints(name, points);
 
     }
 
