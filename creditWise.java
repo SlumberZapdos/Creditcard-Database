@@ -48,7 +48,7 @@ public class creditWise {
 
         while(!exitProgram){
             //homepage
-            front.home();
+            frontFork1.home();
             String choice = input.nextLine();
 
             switch (choice){
@@ -60,13 +60,13 @@ public class creditWise {
                     String[] loginDetails = login(points, credentials);
                     break;
                 case "3":
-                    front.help();
+                    frontFork1.help();
                     break;
                 case "0":
                     exitProgram = true;
                     break;
                 default:
-                    front.invalid();
+                    frontFork1.invalid();
             }
         }
 
@@ -80,29 +80,29 @@ public class creditWise {
         // Logic in registration part
         while (!credentialsConfirmed) {
             // Name
-            front.enterName();
+            frontFork1.enterName();
             String name = input.nextLine();
             userInfo[0] = name;
 
             // Credit card number
-            front.enterNum();
+            frontFork1.enterNum();
             String ccNum = input.nextLine();
             userInfo[1] = ccNum;
 
             // Validate credit card
             String ccType = typeCheck(Long.parseLong(ccNum));
             if (ccType.equals("INVALID")) {
-                front.invalidCard();
+                frontFork1.invalidCard();
                 continue;
             }
 
             // Password
-            front.password();
+            frontFork1.password();
             String pass = input.nextLine();
             userInfo[2] = pass;
 
             // Confirm credentials
-            front.validate(name, ccType);
+            frontFork1.validate(name, ccType);
             String ans = input.nextLine();
             if (ans.equals("1")) {
                 credentialsConfirmed = true;
@@ -152,11 +152,11 @@ public class creditWise {
         Scanner input = new Scanner(System.in);
         String[] loginDetails = new String[3];
 
-        front.logName();
+        frontFork1.logName();
         String name = input.nextLine();
         loginDetails[0] = name;
 
-        front.logpassword();
+        frontFork1.logpassword();
         String pass = input.nextLine();
         loginDetails[1] = pass;
 
@@ -170,7 +170,7 @@ public class creditWise {
         if (found){ //profile method???
             profile(name, points);
         } else {
-            front.logError();
+            frontFork1.logError();
             String res = input.nextLine();
             loginDetails[2] = res;
         }
@@ -179,8 +179,38 @@ public class creditWise {
     }
     static void profile (String name, int points){
         //profile method
-        front.profile(name);
-        front.checkPoints(name, points);
+        Scanner input = new Scanner(System.in);
+        boolean exitProgram = false;
+
+        while(!exitProgram){
+            //profile page
+            frontFork1.profile(name);
+            String choice = input.nextLine();
+
+            switch (choice){
+                case "1":
+                    //check points
+
+                    break;
+                case "2":
+                    //point redemption
+
+                    break;
+                case "3":
+                    //freebies
+
+                    break;
+
+                case "4":
+                    //rewards
+
+                case "0":
+                    exitProgram = true;
+                    break;
+                default:
+                    frontFork1.invalid();
+            }
+        }
 
     }
 
@@ -196,7 +226,8 @@ public class creditWise {
         //show both redemption page and rewards center in one page
     }
 
-    static void billing() {
-        // return how many days are remaining before the bill comes
+    static void freebies() {
+        //freebies check certain points to claim one
     }
 }
+
