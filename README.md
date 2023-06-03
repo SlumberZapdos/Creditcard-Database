@@ -20,10 +20,7 @@ A seamless interface for using your (imaginary) credit card where you can verify
   ## CreditWise points
   - Imaginary and useless points that you could earn by using this program
   
-  ## Payment checker
-  - Check when the payment due is on your card
-  
-  ## Rewards and Balance
+  ## Rewards and freebies
   - Check out what you can get with useless and imaginary points
   
 <br>
@@ -70,6 +67,6 @@ A seamless interface for using your (imaginary) credit card where you can verify
 19.	Prompt user for input 0 to 4
 20.	if user input is 1, go to rewards page
 21.	if user input is 2, go to redeem points page
-22.	if user input is 3, go to billing page
-23.	if user input is 4, go to rewards center 
+22.	if user input is 3, go to rewards
+23.	if user input is 4, go to freebies  
 24.	if user input is 0, exit the program
