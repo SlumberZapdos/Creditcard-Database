@@ -108,7 +108,6 @@ public class creditWise {
             }
         }
         // Assign initial points to the user
-        int points = 100; // Initial points value
         userInfo[3] = Integer.toString(points);
 
         // Add new user credentials to the next available row in credentials
