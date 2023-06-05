@@ -28,45 +28,129 @@ A seamless interface for using your (imaginary) credit card where you can verify
 # Flowchart
 
 ## algorithm
-1.	Start
-2.	Print menu with the options:
--	1 to register
--	2 to login
--	3 for help
--	0 to exit
-3.	Prompt user for input 0 to 3
-4.	If the input is 1, go to registration process
-5.	If the input is 2, go to login process
-6.	If the input is 3, display the help menu
-7.	If the input is 0, exit the program
-8.	If the input is an invalid option, print invalid input menu
-9.	End the program
-> Registration process:
-10.	Prompt user for their name
-11.	Prompt user for their credit card number
-12.	Check what credit card type is
--	If the card is valid, it is either a VISA, Master card or American Express card
--	If the card is invalid, print out invalid number screen
-13.	Prompt user for their password
-14.	Let the user validate if the given information is right
-15.	If the user validates the information, save and store the user information
-> Login process:
-16.	Prompt user for their name and password
-17.	Check if the user’s name and password matches
--	If user’s name and password match, go to profile page
--	If user’s name and password doesn’t match, print login error
-> Profile page:
-18.	Print out a menu with the options:
+1. START
+2. Display the homepage.
+3. Prompt the user.
+-	If the choice is "1":
+	-	Proceed to registration.
+-	If the choice is "2":
+	-	Proceed to login function.
+-	If the choice is "3":
+	-	Print the help information.
+-	If the choice is "0":
+	-	Print thank you message
+	-	go to step 29.
+-	If the choice is invalid:
+	-	Print invalid input message and wait for user confirmation.
 
--	1 to check points
--	2 to redeem points
--	3 to check when they'll pay their card
--	4 to check rewards they could get
--	0 to exit
+<br />
+<br />
+>registration:
+<br />
+4. Prompt the user for their name and store it in an array.
+
+5. Prompt the user to enter their credit card number and store it in an array.
+
+6. Validate credit card number on what type of card it is.
+
+-	If the credit card is invalid, display error message and prompt user again.
+
+7. Prompt the user to enter their password and store it in the userInfo array.
+8. Prompt the user to confirm their credentials.
+
+-	If the response is "1", set credentialsConfirmed to true.
+
+9. Add the user's credentials to the credentials array.
+10. go back to step 2
+
+<br />
+<br />
+>login function:
+<br />
+
+11. Prompt the user to enter their name and store it in the loginDetails array.
+
+12. Prompt the user to enter their password and store it in the loginDetails array.
+
+13. Checks through the credentials array to find a matching credential information.
+
+-	If a matching user is found, call the profile function matching user credentials.
+-	If no matching user is found, print error message.
+
+<br />
+<br />
+>profile function:
+<br />
+
+14. Display the profile page.
+
+15. prompt user.
+
+-	If the choice is "1":
+	-	Go to step 16.
+- If the choice is "2":
+	- Go to step 18.
+- If the choice is "3":
+	- Go to step 22.
+- If the choice is "4":
+	- Go to step 27.
+- If the choice is "0":
+	- Go back to step 2.
+- If the choice is invalid:
+	- Print invalid input message.
 	
-19.	Prompt user for input 0 to 4
-20.	if user input is 1, go to rewards page
-21.	if user input is 2, go to redeem points page
-22.	if user input is 3, go to rewards
-23.	if user input is 4, go to freebies  
-24.	if user input is 0, exit the program
+<br />
+<br />
+>CheckPoints function:
+<br />
+
+16. Print user's name and points.
+
+17. Go back to step 14.
+
+<br />
+<br />
+>Redeem function:
+<br />
+
+18. Print redemption options.
+19. Prompt user to claim food or accessories.
+-	If user promts 1 or 2 proceed to step 20.
+-	If user prompts 0, go back to step 14.
+20. Check if the user has enough points to claim.
+-	If user has enough points, go to step 21.
+-	If user does not have enough points, print insufficient points message.
+21. Print confirmation message.
+-	If the user confirms, reduce 50 points from their points.
+-	if user doesn't confirm go back to step 18.
+
+<br />
+<br />
+>Freebies function:
+<br />
+
+22. Print freebies page, show user what freebie they'll get.
+23. Prompt user if they want to claim it.
+
+-	If user prompts 1, go to step 24.
+-	If user prompts 0, go back to step 14.
+
+24. Print redemption confirmation message.
+25. Prompt user to confirm.
+-	If user confirms, go to step .
+-	If user declines, go back to step 22.
+26. Print successful claim message and go back to step 14
+
+<br />
+<br />
+>Rewards Center function:
+<br />
+
+27. Print rewards center
+28. Prompt user.
+-	If user prompts 1, go to step 16.
+-	If user prompts 2, print out future feature message and go back to step 14.
+-	if user prompts 3, print information about points.
+-	if user prompts 0, go back to step 14.
+<br />
+29. END
