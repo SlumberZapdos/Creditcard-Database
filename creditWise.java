@@ -49,7 +49,7 @@ public static void main(String[] args) {
 
     try {
         while (!exitProgram) {
-            FrontFork1.home();
+            Front.home();
             String choice = input.nextLine();
 
             switch (choice) {
@@ -60,10 +60,10 @@ public static void main(String[] args) {
                 case "2" -> {
                     String[] loginDetails = login(points, credentials);
                 }
-                case "3" -> FrontFork1.help();
+                case "3" -> Front.help();
                 case "0" -> exitProgram = true;
                 default -> {
-                    FrontFork1.invalid();
+                    Front.invalid();
                     String confirmation = input.nextLine();
                 }
             }
@@ -82,29 +82,29 @@ public static void main(String[] args) {
         // Logic in registration part
         while (!credentialsConfirmed) {
             // Name
-            FrontFork1.enterName();
+            Front.enterName();
             String name = input.nextLine();
             userInfo[0] = name;
 
             // Credit card number
-            FrontFork1.enterNum();
+            Front.enterNum();
             String ccNum = input.nextLine();
             userInfo[1] = ccNum;
 
             // Validate credit card
             String ccType = typeCheck(Long.parseLong(ccNum));
             if (ccType.equals("INVALID")) {
-                FrontFork1.invalidCard();
+                Front.invalidCard();
                 continue;
             }
 
             // Password
-            FrontFork1.password();
+            Front.password();
             String pass = input.nextLine();
             userInfo[2] = pass;
 
             // Confirm credentials
-            FrontFork1.validate(name, ccType);
+            Front.validate(name, ccType);
             String ans = input.nextLine();
             if (ans.equals("1")) {
                 credentialsConfirmed = true;
@@ -155,11 +155,11 @@ public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String[] loginDetails = new String[3];
 
-        FrontFork1.logName();
+        Front.logName();
         String name = input.nextLine();
         loginDetails[0] = name;
 
-        FrontFork1.logpassword();
+        Front.logpassword();
         String pass = input.nextLine();
         loginDetails[1] = pass;
 
@@ -174,7 +174,7 @@ public static void main(String[] args) {
             //go to profile page
             profile(name, points, credentials);
         } else {
-            FrontFork1.logError();
+            Front.logError();
             String res = input.nextLine();
             loginDetails[2] = res;
         }
@@ -187,7 +187,7 @@ public static void main(String[] args) {
         boolean exitProgram = false;
 
         while (!exitProgram) {
-            FrontFork1.profile(name);
+            Front.profile(name);
             String choice1 = input.nextLine();
 
             switch (choice1) {
@@ -197,7 +197,7 @@ public static void main(String[] args) {
                 case "4" -> rewardsCenter();
                 case "0" -> exitProgram = true;
                 default -> {
-                    FrontFork1.invalid();
+                    Front.invalid();
                     String confirmation = input.nextLine();
                 }
             }
@@ -206,24 +206,24 @@ public static void main(String[] args) {
 
     static void checkPoints(String name, int points) {
         Scanner input = new Scanner(System.in);
-        FrontFork1.checkPoints(name, points);
+        Front.checkPoints(name, points);
         String choice2 = input.nextLine();
-        FrontFork1.profile(name);
+        Front.profile(name);
     }
 
     public static int redeem(String name, int points) {
         Scanner input = new Scanner(System.in);
-        FrontFork1.redemption(name, points);
+        Front.redemption(name, points);
         int choice3 = input.nextInt();
-        FrontFork1.redemptionConfirm();
+        Front.redemptionConfirm();
         int choice4 = input.nextInt();
         if (choice4 == 1 || choice4 == 2) {
             if (points < 50) {
-                FrontFork1.insufficientPoints();
+                Front.insufficientPoints();
                 String conf = input.nextLine();
             } else {
                 points -= 50;
-                FrontFork1.redemptionSuccess();
+                Front.redemptionSuccess();
                 String conf = input.nextLine();
             }
         } else {
@@ -235,28 +235,28 @@ public static void main(String[] args) {
     public static int freebies(int points, String[][] credentials) {
         //claim at least 1 free reward/s
         Scanner input = new Scanner(System.in);
-        FrontFork1.freebies();
+        Front.freebies();
         int choice5 = input.nextInt();
-        FrontFork1.redemptionConfirm();
+        Front.redemptionConfirm();
         int choice6 = input.nextInt();
         if (choice6 == 1) {
             // Convert "1000" to an int using CredentialsConverter class
             int num = CredentialsConverter.convertToInt(credentials[0][2]);
             if (points < 50) {
-                FrontFork1.claimInvalid();
+                Front.claimInvalid();
                 String confirm = input.nextLine();
             }
             else {
                 points -= 50;
-                FrontFork1.claimSuccess();
+                Front.claimSuccess();
                 String confirm = input.nextLine();
             }
         } else if (choice6 == 2) {
             if (points >= 50) {
                 points =- 50;
-                FrontFork1.claimSuccess();
+                Front.claimSuccess();
             } else {
-                FrontFork1.claimInvalid();
+                Front.claimInvalid();
             }
             String confirm = input.nextLine();
         } else {
@@ -268,19 +268,19 @@ public static void main(String[] args) {
     static void rewardsCenter() {
         //shows how to redeem points
         Scanner input = new Scanner(System.in);
-        FrontFork1.rewardCenter();
+        Front.rewardCenter();
         String rcok = input.nextLine();
         switch (rcok) {
             case "1" -> {
-                FrontFork1.reward();
+                Front.rewardsCenterpoints();
                 String confirm = input.nextLine();
             }
             case "2" -> {
-                FrontFork1.rewardsCenterPB();
+                Front.rewardsCenterPB();
                 String confirm = input.nextLine();
             }
             case "3" -> {
-                FrontFork1.help();
+                Front.reward();
                 String confirm = input.nextLine();
             }
             default -> System.out.println(" ");
