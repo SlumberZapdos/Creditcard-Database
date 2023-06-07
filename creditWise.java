@@ -29,10 +29,10 @@ public class creditWise {
      * Those are some test numbers of those cards supported by CreditWise
      */
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        boolean exitProgram = false;
-        String[][] credentials = {
+public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    boolean exitProgram = false;
+    String[][] credentials = {
                 {"VISA", "4111111111111111", "password", "1000",},
                 {null, null, null, "1000"}, // rows available for other users
                 {null, null, null, "1000"},
@@ -43,12 +43,12 @@ public class creditWise {
                 {null, null, null, "1000"},
                 {null, null, null, "1000"},
                 {null, null, null, "1000"},
-        };
-        int numUsers = 0;
-        int points = CredentialsConverter.convertToInt(credentials[0][3]);
+    };
+    int numUsers = 0;
+    int points = CredentialsConverter.convertToInt(credentials[0][3]);
 
+    try {
         while (!exitProgram) {
-            //homepage
             FrontFork1.home();
             String choice = input.nextLine();
 
@@ -68,9 +68,12 @@ public class creditWise {
                 }
             }
         }
-
-        System.out.println("Thank you for using CreditWise!");
+    } catch (Exception e) {
+        System.out.println("An error occurred: " + e.getMessage() + "please contact one of our staff");
     }
+    //exit message
+    System.out.println("Thank you for using CreditWise!");
+}
 
     static void register(Scanner input, String[][] credentials, int numUsers) {
         String[] userInfo = new String[4];
@@ -107,8 +110,6 @@ public class creditWise {
                 credentialsConfirmed = true;
             }
         }
-        // Assign initial points to the user
-        userInfo[3] = Integer.toString(points);
 
         // Add new user credentials to the next available row in credentials
         credentials[numUsers][0] = userInfo[0];
@@ -219,14 +220,14 @@ public class creditWise {
         if (choice4 == 1 || choice4 == 2) {
             if (points < 50) {
                 FrontFork1.insufficientPoints();
-                String confi = input.nextLine();
+                String conf = input.nextLine();
             } else {
                 points -= 50;
                 FrontFork1.redemptionSuccess();
                 String conf = input.nextLine();
             }
         } else {
-            System.out.println("Out of bounds");
+            System.out.println(" ");
         }
         return points;
     }
@@ -244,10 +245,11 @@ public class creditWise {
             if (points < 50) {
                 FrontFork1.claimInvalid();
                 String confirm = input.nextLine();
-            } else {
+            }
+            else {
                 points -= 50;
                 FrontFork1.claimSuccess();
-                String confrm = input.nextLine();
+                String confirm = input.nextLine();
             }
         } else if (choice6 == 2) {
             if (points >= 50) {
@@ -256,11 +258,9 @@ public class creditWise {
             } else {
                 FrontFork1.claimInvalid();
             }
-            String confirma = input.nextLine();
-        } else if (choice6 == 0) {
-            System.out.println(" ");
+            String confirm = input.nextLine();
         } else {
-            System.out.println("Out of bounds");
+            System.out.println(" ");
         }
         return points;
     }
@@ -272,18 +272,18 @@ public class creditWise {
         String rcok = input.nextLine();
         switch (rcok) {
             case "1" -> {
-                FrontFork1.rewardsCenterpoints();
-                String confirmati = input.nextLine();
+                FrontFork1.reward();
+                String confirm = input.nextLine();
             }
             case "2" -> {
                 FrontFork1.rewardsCenterPB();
-                String confimation = input.nextLine();
+                String confirm = input.nextLine();
             }
             case "3" -> {
                 FrontFork1.help();
-                String confirmations = input.nextLine();
+                String confirm = input.nextLine();
             }
-            default -> System.out.println("Out of bounds");
+            default -> System.out.println(" ");
         }
     }
 
