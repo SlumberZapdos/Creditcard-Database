@@ -417,10 +417,10 @@ public class FrontFork1 {
                         ||=============================================================||
                         []           	      [!|!] REDEMPTION [!|!]                   []
                         	    Account: 	  %s
-                                    Total Points: %d                                                
+                                    Total Points: %d
                         []                			   	                               []
-                        ||              [1]: FOOD                                      ||                        
-                        ||              [2]: ACCESSORIES				               ||
+                        ||              [1]: JoliDope 1,000 gift card                  ||
+                        ||              [2]: Kagayaku nuclear cleanser            	   ||
                         ||              [0]: Exit                                      ||
                         ||                                                             ||
                         ||====  =================================================  ====||
@@ -505,9 +505,9 @@ public class FrontFork1 {
                         ||                                                             ||
                         ||                      !! REWARD CENTER !!                    ||
                         ||                                                             ||
-                        ||              [1]: Points                                    ||
+                        ||              [1]: About Points                              ||
                         ||              [2]: Pay Bills                                 ||
-                        ||              [3]: Help                                      ||
+                        ||              [3]: About CreditWise                          ||
                         ||              [0]: Exit                                      ||
                         ||                                                             ||
                         ||====  =================================================  ====||
@@ -535,7 +535,7 @@ public class FrontFork1 {
                         ||                                                             ||
                         ||               !! FREEBIES !!                                ||
                         ||                                                             ||
-                        ||              [1]: Daily News Update                         ||
+                        ||              [1]: Daily JoliDope Gift card                  ||
                         ||              [2]: Account Badge                             ||
                         ||              [0]: Exit                                      ||
                         ||                                                             ||
