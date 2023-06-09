@@ -29,51 +29,48 @@ public class creditWise {
      * Those are some test numbers of those cards supported by CreditWise
      */
 
-public static void main(String[] args) {
-    Scanner input = new Scanner(System.in);
-    boolean exitProgram = false;
-    String[][] credentials = {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        boolean exitProgram = false;
+        String[][] credentials = {
                 {"VISA", "4111111111111111", "password", "1000",},
-                {null, null, null, "1000"}, // rows available for other users
-                {null, null, null, "1000"},
-                {null, null, null, "1000"},
-                {null, null, null, "1000"},
-                {null, null, null, "1000"},
-                {null, null, null, "1000"},
-                {null, null, null, "1000"},
-                {null, null, null, "1000"},
-                {null, null, null, "1000"},
-    };
-    int numUsers = 0;
-    int points = CredentialsConverter.convertToInt(credentials[0][3]);
+                {null, null, null, null}, // rows available for other users
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+        };
+        int numUsers = 1;
+        int points = CredentialsConverter.convertToInt(credentials[0][3]);
 
-    try {
-        while (!exitProgram) {
-            Front.home();
-            String choice = input.nextLine();
+        try {
+            while (!exitProgram) {
+                Front.home();
+                String choice = input.nextLine();
 
-            switch (choice) {
-                case "1" -> {
-                    register(input, credentials, numUsers);
-                    numUsers++;
-                }
-                case "2" -> {
-                    String[] loginDetails = login(points, credentials);
-                }
-                case "3" -> Front.help();
-                case "0" -> exitProgram = true;
-                default -> {
-                    Front.invalid();
-                    String confirmation = input.nextLine();
+                switch (choice) {
+                    case "1" -> {
+                        register(input, credentials, numUsers);
+                        numUsers++;
+                    }
+                    case "2" -> {
+                        String[] loginDetails = login(credentials, points);
+                    }
+                    case "3" -> Front.help();
+                    case "0" -> exitProgram = true;
+                    default -> Front.invalid();
                 }
             }
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage() + "please contact one of our staff");
         }
-    } catch (Exception e) {
-        System.out.println("An error occurred: " + e.getMessage() + "please contact one of our staff");
+        //exit message
+        System.out.println("Thank you for using CreditWise!");
     }
-    //exit message
-    System.out.println("Thank you for using CreditWise!");
-}
 
     static void register(Scanner input, String[][] credentials, int numUsers) {
         String[] userInfo = new String[4];
@@ -84,12 +81,10 @@ public static void main(String[] args) {
             // Name
             Front.enterName();
             String name = input.nextLine();
-            userInfo[0] = name;
 
             // Credit card number
             Front.enterNum();
             String ccNum = input.nextLine();
-            userInfo[1] = ccNum;
 
             // Validate credit card
             String ccType = typeCheck(Long.parseLong(ccNum));
@@ -101,13 +96,19 @@ public static void main(String[] args) {
             // Password
             Front.password();
             String pass = input.nextLine();
-            userInfo[2] = pass;
+
+            //points
+            // to be fixed
+            System.out.println("Congratulations on having 1000 points to your account");
 
             // Confirm credentials
             Front.validate(name, ccType);
             String ans = input.nextLine();
             if (ans.equals("1")) {
                 credentialsConfirmed = true;
+                userInfo[0] = name;
+                userInfo[1] = ccNum;
+                userInfo[2] = pass;
             }
         }
 
@@ -116,6 +117,9 @@ public static void main(String[] args) {
         credentials[numUsers][1] = userInfo[1];
         credentials[numUsers][2] = userInfo[2];
         credentials[numUsers][3] = userInfo[3];
+
+        // Increment the number of users
+        numUsers++;
     }
 
     static String typeCheck(long ccNum) {
@@ -151,40 +155,54 @@ public static void main(String[] args) {
         }
     }
 
-    static String[] login(int points, String[][] credentials) {
+    static String[] login(String[][] credentials, int points) {
         Scanner input = new Scanner(System.in);
         String[] loginDetails = new String[3];
+        boolean loggedIn = false;
 
-        Front.logName();
-        String name = input.nextLine();
-        loginDetails[0] = name;
+        while (!loggedIn) {
+            Front.logName();
+            String name = input.nextLine();
+            loginDetails[0] = name;
 
-        Front.logpassword();
-        String pass = input.nextLine();
-        loginDetails[1] = pass;
+            Front.logpassword();
+            String pass = input.nextLine();
+            loginDetails[1] = pass;
 
-        boolean found = false;
-        for (int i = 0; i < credentials.length; i++) {
-            if (credentials[i][0] != null && credentials[i][2] != null && loginDetails[0].equals(credentials[i][0]) && loginDetails[1].equals(credentials[i][2])) {
-                found = true;
-                break;
+            for (int i = 0; i < credentials.length; i++) {
+                if (credentials[i][0] != null && credentials[i][2] != null && loginDetails[0].equals(credentials[i][0]) && loginDetails[1].equals(credentials[i][2])) {
+                    loginDetails[2] = credentials[i][3];
+                    loggedIn = true;
+                    break;
+                }
+            }
+
+            if (!loggedIn) {
+                Front.logError();
+                String res = input.nextLine();
+
+                // Check if the user wants to retry or exit
+                if (res.equals("0")) {
+                    return null; // Return null to indicate login failure
+                }
             }
         }
-        if (found) {
-            //go to profile page
-            profile(name, points, credentials);
-        } else {
-            Front.logError();
-            String res = input.nextLine();
-            loginDetails[2] = res;
-        }
+
+        // Go to the profile page
+        profile(loginDetails, loginDetails[0], credentials, points);
 
         return loginDetails;
     }
 
-    static void profile(String name, int points, String[][] credentials) {
+    static void profile(String [] loginDetails, String name, String[][] credentials, int points) {
         Scanner input = new Scanner(System.in);
         boolean exitProgram = false;
+
+        //loginDetails
+        /*
+        loginDetails[0] == name
+        loginDetails[2] == points
+         */
 
         while (!exitProgram) {
             Front.profile(name);
@@ -196,10 +214,7 @@ public static void main(String[] args) {
                 case "3" -> freebies(points, credentials);
                 case "4" -> rewardsCenter();
                 case "0" -> exitProgram = true;
-                default -> {
-                    Front.invalid();
-                    String confirmation = input.nextLine();
-                }
+                default -> Front.invalid();
             }
         }
     }
@@ -207,7 +222,8 @@ public static void main(String[] args) {
     static void checkPoints(String name, int points) {
         Scanner input = new Scanner(System.in);
         Front.checkPoints(name, points);
-        String choice2 = input.nextLine();
+        String choice = input.nextLine();
+        //if choice
         Front.profile(name);
     }
 
@@ -233,15 +249,13 @@ public static void main(String[] args) {
     }
 
     public static int freebies(int points, String[][] credentials) {
-        //claim at least 1 free reward/s
+        //claim reward claimable on reaching a certain point
         Scanner input = new Scanner(System.in);
         Front.freebies();
         int choice5 = input.nextInt();
         Front.redemptionConfirm();
         int choice6 = input.nextInt();
         if (choice6 == 1) {
-            // Convert "1000" to an int using CredentialsConverter class
-            int num = CredentialsConverter.convertToInt(credentials[0][2]);
             if (points < 50) {
                 Front.claimInvalid();
                 String confirm = input.nextLine();
@@ -269,8 +283,8 @@ public static void main(String[] args) {
         //shows how to redeem points
         Scanner input = new Scanner(System.in);
         Front.rewardCenter();
-        String rcok = input.nextLine();
-        switch (rcok) {
+        String rook = input.nextLine();
+        switch (rook) {
             case "1" -> {
                 Front.rewardsCenterpoints();
                 String confirm = input.nextLine();
